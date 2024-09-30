@@ -16,28 +16,28 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"ucapdev.work","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.noshenxian.win","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.0","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="ARM环境中编译安装mysql5.7.44数据库 编译环境准备 1234567891011121314yum install -y cmake bison flex libaio-devel numactl-devel openssl-devel gcc gcc-c++ libtirpc-devel ncurses-develwget https:&#x2F;&#x2F;github.com&#x2F;thkukuk&#x2F;rpcs">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ARM环境中编译安装mysql5.7.44数据库">
-<meta property="og:url" content="https://ucapdev.work/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
+<meta property="og:url" content="https://blog.noshenxian.win/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/index.html">
 <meta property="og:site_name" content="神仙chao&#39;s">
 <meta property="og:description" content="ARM环境中编译安装mysql5.7.44数据库 编译环境准备 1234567891011121314yum install -y cmake bison flex libaio-devel numactl-devel openssl-devel gcc gcc-c++ libtirpc-devel ncurses-develwget https:&#x2F;&#x2F;github.com&#x2F;thkukuk&#x2F;rpcs">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-25T06:20:32.000Z">
 <meta property="article:modified_time" content="2024-06-25T07:18:01.229Z">
-<meta property="article:author" content="Sean">
+<meta property="article:author" content="Noshenxian">
 <meta property="article:tag" content="ARM64">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ucapdev.work/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/">
+<link rel="canonical" href="https://blog.noshenxian.win/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ucapdev.work/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/","path":"2024/06/25/ARM环境中编译安装mysql5.7.44数据库/","title":"ARM环境中编译安装mysql5.7.44数据库"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.noshenxian.win/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/","path":"2024/06/25/ARM环境中编译安装mysql5.7.44数据库/","title":"ARM环境中编译安装mysql5.7.44数据库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>ARM环境中编译安装mysql5.7.44数据库 | 神仙chao's</title>
@@ -76,7 +76,7 @@
       <p class="site-title">神仙chao's</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">工作中的一些感悟和笔记</p>
+      <p class="site-subtitle" itemprop="description">一些感悟和笔记</p>
   </div>
 
   <div class="site-nav-right">
@@ -119,7 +119,7 @@
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">Sean</p>
+  <p class="site-author-name" itemprop="name">Noshenxian</p>
   <div class="site-description" itemprop="description">记录工作、感悟生活！</div>
 </div>
 <div class="site-state-wrap animated">
@@ -164,11 +164,11 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ucapdev.work/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/">
+    <link itemprop="mainEntityOfPage" href="https://blog.noshenxian.win/2024/06/25/ARM%E7%8E%AF%E5%A2%83%E4%B8%AD%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85mysql5.7.44%E6%95%B0%E6%8D%AE%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Sean">
+      <meta itemprop="name" content="Noshenxian">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
