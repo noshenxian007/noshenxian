@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.noshenxian.win","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Docker配置 daemon.jso  docker存储目录新版变为data-root  12345678910111213&amp;#123;  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxx.mirror.aliyuncs.com&quot;],  &quot;insecure-registries&quot;:[&quot;1.1.1.1:80">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Docker相关">
+<meta property="og:url" content="https://blog.noshenxian.win/cloudnative/Docker%E7%9B%B8%E5%85%B3.html">
+<meta property="og:site_name" content="神仙chao&#39;s">
+<meta property="og:description" content="Docker配置 daemon.jso  docker存储目录新版变为data-root  12345678910111213&amp;#123;  &quot;registry-mirrors&quot;: [&quot;https:&#x2F;&#x2F;xxxxx.mirror.aliyuncs.com&quot;],  &quot;insecure-registries&quot;:[&quot;1.1.1.1:80">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-27T13:01:03.000Z">
+<meta property="article:modified_time" content="2023-12-27T13:09:40.084Z">
+<meta property="article:author" content="noshenxian">
+<meta property="article:tag" content="Dokcer">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://blog.noshenxian.win/cloudnative/Docker%E7%9B%B8%E5%85%B3">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://blog.noshenxian.win/cloudnative/Docker%E7%9B%B8%E5%85%B3.html","path":"cloudnative/Docker相关.html","title":"Docker相关"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Docker相关 | 神仙chao's
+</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">神仙chao's</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一些感悟和笔记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#docker%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">Docker配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#daemon.jso"><span class="nav-number">1.1.</span> <span class="nav-text">daemon.jso</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sysctl.conf"><span class="nav-number">1.2.</span> <span class="nav-text">sysctl.conf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%99%AE%E9%80%9A%E7%94%A8%E6%88%B7%E5%8A%A0%E5%85%A5docker%E7%BB%84"><span class="nav-number">1.3.</span> <span class="nav-text">普通用户加入docker组</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">noshenxian</p>
+  <div class="site-description" itemprop="description">记录工作、感悟生活！</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">Docker相关
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <h1 id="docker配置">Docker配置</h1>
+<h2 id="daemon.jso">daemon.jso</h2>
+<ul>
+<li>docker存储目录新版变为data-root</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  &quot;registry-mirrors&quot;: [&quot;https://xxxxx.mirror.aliyuncs.com&quot;],</span><br><span class="line">  &quot;insecure-registries&quot;:[&quot;1.1.1.1:80&quot;],</span><br><span class="line">  &quot;data-root&quot;: &quot;/data/docker&quot;,</span><br><span class="line">  &quot;exec-opts&quot;: [&quot;native.cgroupdriver=systemd&quot;],</span><br><span class="line">  &quot;log-driver&quot;: &quot;json-file&quot;,</span><br><span class="line">  &quot;log-opts&quot;: &#123;</span><br><span class="line">  &quot;max-size&quot;: &quot;100m&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;storage-driver&quot;: &quot;overlay2&quot;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="sysctl.conf">sysctl.conf</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.ip_forward=1</span><br><span class="line">net.bridge.bridge-nf-call-iptables=1</span><br><span class="line">net.bridge.bridge-nf-call-ip6tables = 1</span><br><span class="line">net.ipv4.neigh.default.gc_thresh1=4096</span><br><span class="line">net.ipv4.neigh.default.gc_thresh2=6144</span><br><span class="line">net.ipv4.neigh.default.gc_thresh3=8192</span><br></pre></td></tr></table></figure>
+<h2 id="普通用户加入docker组">普通用户加入docker组</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo gpasswd -a $&#123;USER&#125; docker</span><br><span class="line">sudo usermod -aG docker $USER</span><br><span class="line">newgr docker</span><br></pre></td></tr></table></figure>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">noshenxian</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+</body>
+</html>
