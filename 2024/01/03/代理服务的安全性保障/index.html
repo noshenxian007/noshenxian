@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.3.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -12,12 +13,12 @@
 
 <link rel="stylesheet" href="/css/main.css">
 
-
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=-apple-system:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=BlinkMacSystemFont:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Segoe+UI:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Helvetica:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Arial:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=PingFang+SC:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Hiragino+Sans+GB:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Microsoft+YaHei:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=sans-serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Fira+Code:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Menlo:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Consolas:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=monospace:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.noshenxian.win","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.noshenxian.win","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.25.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"hide","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"flat"},"fold":{"enable":true,"height":500},"language":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js" defer></script>
 
     <meta name="description" content="背景 项目中很多时候需要使用nginx类服务作为反向代理来打通不同业务的互相访问使用，一般情况下项目中会直接使用到nginx的proxy模块来实现业务的反向代理，近年来国家高度重视网络安全，各类的安全渗透扫描测试层出不穷，项目上如果没有专门配置安全管理员或安全类工程师的情况下，nginx很容易会被识别为网络攻击发起者，为消除不必要的误会，以下就如何加强反向代理服务的安全性、维护反向代理自身API接">
 <meta property="og:type" content="article">
@@ -27,7 +28,7 @@
 <meta property="og:description" content="背景 项目中很多时候需要使用nginx类服务作为反向代理来打通不同业务的互相访问使用，一般情况下项目中会直接使用到nginx的proxy模块来实现业务的反向代理，近年来国家高度重视网络安全，各类的安全渗透扫描测试层出不穷，项目上如果没有专门配置安全管理员或安全类工程师的情况下，nginx很容易会被识别为网络攻击发起者，为消除不必要的误会，以下就如何加强反向代理服务的安全性、维护反向代理自身API接">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-01-03T14:08:11.000Z">
-<meta property="article:modified_time" content="2024-01-13T02:21:48.881Z">
+<meta property="article:modified_time" content="2025-10-17T03:57:42.905Z">
 <meta property="article:author" content="noshenxian">
 <meta property="article:tag" content="nginx 反向代理 安全">
 <meta name="twitter:card" content="summary">
@@ -51,7 +52,9 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
-<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
 
   
 
@@ -79,6 +82,9 @@
       <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -100,6 +106,10 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
 
 
 
@@ -151,6 +161,11 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/noshenxian" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;noshenxian" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
 
         </div>
       </div>
@@ -209,7 +224,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-13 10:21:48" itemprop="dateModified" datetime="2024-01-13T10:21:48+08:00">2024-01-13</time>
+      <time title="修改时间：2025-10-17 11:57:42" itemprop="dateModified" datetime="2025-10-17T11:57:42+08:00">2025-10-17</time>
     </span>
 
   
@@ -255,8 +270,8 @@ target="_blank" rel="noopener" href="https://waf-ce.chaitin.cn/docs/guide/instal
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2023/12/27/%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84%E5%AD%A6%E4%B9%A0/" rel="prev" title="微服务架构设计模式-笔记">
-                  <i class="fa fa-angle-left"></i> 微服务架构设计模式-笔记
+                <a href="/2023/12/27/%E5%8D%83%E9%87%8C%E4%B9%8B%E8%A1%8C%E5%A7%8B%E4%BA%8E%E8%B6%B3%E4%B8%8B/" rel="prev" title="千里之行始于足下">
+                  <i class="fa fa-angle-left"></i> 千里之行始于足下
                 </a>
             </div>
             <div class="post-nav-item">
@@ -281,15 +296,14 @@ target="_blank" rel="noopener" href="https://waf-ce.chaitin.cn/docs/guide/instal
     <div class="footer-inner">
 
   <div class="copyright">
-    &copy; 
+    &copy; 2023 – 
     <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
     <span class="author" itemprop="copyrightHolder">noshenxian</span>
   </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
-  </div>
+
 
     </div>
   </footer>
